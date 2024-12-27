@@ -8,10 +8,6 @@ import os
 
 load_dotenv()
 
-# genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-# model = genai.GenerativeModel("gemini-1.5-flash")
-# response = model.generate_content("Explain how AI works" + os.getenv('AI_PROMPT'))
-
 recorder = PicoVoiceWrapped(device_index=0, frame_length=512)
 s2t = SpeechToText(model='small.en', device='cpu', compute_type='float32')
 llm = GeminiWrapped(model=os.getenv('AI_MODEL'), api_key=os.getenv('GEMINI_API_KEY'))
